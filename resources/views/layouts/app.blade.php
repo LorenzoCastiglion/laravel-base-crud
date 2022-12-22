@@ -18,8 +18,8 @@
 
 </head>
 
-<body>
-    <div id="particles-js">
+<body id="particles-js" class=" position-relative">
+   
    <header>
     @include('partials.header')
    </header>
@@ -31,7 +31,7 @@
    </main>
 
    @include('partials.footer')
-</div>
+
 </body>
 
 </html>

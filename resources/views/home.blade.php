@@ -2,7 +2,7 @@
 
 
 @section('countdown')
-<div id="timer"></div> 
+<div id="timer" class="countdown-xmass"></div> 
 @endsection
 
 
