@@ -16,7 +16,7 @@ class GiftsController extends Controller
     public function index()
     {
         $gifts = Gift::all();
-        return view('gifts.index', compact('gifts'));
+        return view('Gifts.index', compact('gifts'));
     }
 
     /**
