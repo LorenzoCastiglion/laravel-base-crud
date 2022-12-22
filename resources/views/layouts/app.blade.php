@@ -26,7 +26,7 @@
 
    <main>
    
-    
+    @yield('countdown')
     @yield('content')
    </main>
 

@@ -46,6 +46,7 @@ class GiftsController extends Controller
             'country' => 'required',
             'city' => 'required',
             'address' => 'required',
+            'image' => 'required'
         ]);
 
         $formData = $request->all();
@@ -71,7 +72,7 @@ class GiftsController extends Controller
      */
     public function show(Gift $gift)
     {
-        return view('Gift.show', compact('gifts'));
+        return view('Gifts.show', compact('gift'));
     }
 
     /**
@@ -82,7 +83,7 @@ class GiftsController extends Controller
      */
     public function edit(Gift $gift)
     {
-        return view('Gift.show', compact('gifts'));
+        return view('Gifts.show', compact('gifts'));
        
     }
 
@@ -119,6 +120,6 @@ class GiftsController extends Controller
     public function destroy(Gift $gift)
     {
         $gift->delete();
-        return redirect()->route(('Gift.index'));
+        return redirect()->route(('Gifts.index'));
     }
 }
