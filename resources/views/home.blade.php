@@ -2,6 +2,8 @@
 
 
 @section('countdown')
+
+<h1>time to x-mass</h1>
 <div id="timer" class="countdown-xmass"></div> 
 @endsection
 
