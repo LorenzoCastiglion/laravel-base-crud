@@ -19,19 +19,19 @@
 </head>
 
 <body>
-
+    <div id="particles-js">
    <header>
     @include('partials.header')
    </header>
 
    <main>
-    <div id="particles-js"></div>
+   
     
     @yield('content')
    </main>
 
    @include('partials.footer')
-
+</div>
 </body>
 
 </html>

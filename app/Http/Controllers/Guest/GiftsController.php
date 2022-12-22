@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gift;
+use Psy\CodeCleaner\ReturnTypePass;
 
 class GiftsController extends Controller
 {
@@ -26,7 +27,7 @@ class GiftsController extends Controller
      */
     public function create()
     {
-        //
+        return view('Gifts.create');
     }
 
     /**
@@ -37,7 +38,29 @@ class GiftsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'gift' => 'required',
+            'name' => 'required',
+            'surname' => 'required',
+            'age' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'address' => 'required',
+        ]);
+
+        $formData = $request->all();
+        $newGift = new Gift;
+        $newGift->gift = $formData['gift'];
+        $newGift->name = $formData['name'];
+        $newGift->surname = $formData['surname'];
+        $newGift->age = $formData['age'];
+        $newGift->country = $formData['country'];
+        $newGift->city = $formData['city'];
+        $newGift->address = $formData['address'];
+        $newGift->image = $formData['image'];
+        $newGift->save();
+
+        return redirect()->route('Gifts.show', $newGift->id);
     }
 
     /**
@@ -46,9 +69,9 @@ class GiftsController extends Controller
      * @param  int  $id
      * 
      */
-    public function show($id)
+    public function show(Gift $gift)
     {
-        //
+        return view('Gift.show', compact('gifts'));
     }
 
     /**
@@ -57,9 +80,10 @@ class GiftsController extends Controller
      * @param  int  $id
      * 
      */
-    public function edit($id)
+    public function edit(Gift $gift)
     {
-        //
+        return view('Gift.show', compact('gifts'));
+       
     }
 
     /**
@@ -71,7 +95,19 @@ class GiftsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formData = $request->all();
+        $newGift = Gift::find($id);
+        $newGift->gift = $formData['gift'];
+        $newGift->name = $formData['name'];
+        $newGift->surname = $formData['surname'];
+        $newGift->age = $formData['age'];
+        $newGift->country = $formData['country'];
+        $newGift->city = $formData['city'];
+        $newGift->address = $formData['address'];
+        $newGift->image = $formData['image'];
+        $newGift->save();
+
+        return redirect()->route('Gifts.show', $newGift->id);
     }
 
     /**
@@ -80,8 +116,9 @@ class GiftsController extends Controller
      * @param  int  $id
      * 
      */
-    public function destroy($id)
+    public function destroy(Gift $gift)
     {
-        //
+        $gift->delete();
+        return redirect()->route(('Gift.index'));
     }
 }

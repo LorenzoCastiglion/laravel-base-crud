@@ -26,7 +26,7 @@ class GiftTableSeeder extends Seeder
             $newGift->country = $faker->country();
             $newGift->city = $faker->city();
             $newGift->address = $faker->address();
-            $newGift->image = $faker->imageUrl(640, 480);
+            $newGift->image = $faker->imageUrl(360, 360, 'animals', true, 'cats');
             $newGift->save();
 
 

@@ -19,3 +19,4 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('gifts', GiftsController::class);
+
