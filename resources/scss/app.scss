@@ -200,6 +200,7 @@ footer {
     display: var(--uismLinkDisplay);
     color: rgb(255, 255, 255);
     outline: solid  2px rgb(255, 255, 255);
+    
     position: relative;
     transition-duration: 0.4s;
     overflow: hidden;
@@ -317,4 +318,27 @@ footer {
 
 .delete:focus {
 	outline: none;
+}
+
+
+// sezione create
+
+.form-container{
+    text-align: center;
+    padding: 20px 0;
+
+    form{
+
+
+    }
+
+    .submit-btn{
+    background-color: green;
+    color: #ffffff;
+    font-weight: bold;
+
+    &:hover{
+        opacity: 0.9;
+    }
+    }
 }
