@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<section class="section-main align-items-center justify-content-center">
-    <div class="form-container">
+<section class="section-main align-items-center justify-content-center col-4 ">
+    <div class="form-container   ">
         <form action={{ route('gifts.update', $gift->id) }} method="POST" class="text-white">
             @csrf
             @method('PUT')
